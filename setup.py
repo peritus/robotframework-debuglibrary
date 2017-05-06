@@ -10,7 +10,7 @@ PY3 = sys.version_info[0] == 3
 
 install_requires = []
 if PY3:
-    install_requires.append('robotframework-python3 >= 2.8')
+    install_requires.append('robotframework >= 3')
 else:
     install_requires.append('robotframework >= 2.8')
 
