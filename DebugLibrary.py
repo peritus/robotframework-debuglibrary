@@ -136,7 +136,13 @@ class DebugCmd(BaseCmd):
         if not command:
             return
         try:
-            u_command = command.decode("utf-8")
+            if hasattr(command, 'decode'):
+                # python 2, convert to unicode
+                u_command = command.decode("utf-8")
+            else:
+                # python 3, strings are unicode by default
+                u_command = command
+
             keyword = KEYWORD_SEP.split(u_command)
             variable_name = keyword[0].rstrip('= ')
 
